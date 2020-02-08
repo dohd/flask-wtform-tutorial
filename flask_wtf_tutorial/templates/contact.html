@@ -1,13 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" type="text/css">
 {% endblock %}
 
 {% block content %}
 <div class="formwrapper">
   <h2 class="title">Contact</h2>
-  <form method="POST" action="/">
+  <form method="POST" action="/success">
+      {{ form.hidden_tag() }}
     <div class="form-field">{{ form.name.label }} {{ form.name(size=20) }}
       {% if form.name.errors %}
         <ul class="errors">
